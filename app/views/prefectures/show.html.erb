@@ -1,0 +1,35 @@
+<h1 class="m-3 fw-bold"><%= @prefecture.name %></h1>
+
+<%# @hotels.in_groups_of(3) do |group| %>
+<!--  <div class="row">-->
+    <%# group.compact.each do |hotel| %>
+<!--      <div class="col-md-4">-->
+<!--        <h4><%#= link_to hotel.name, hotel %></h4>-->
+        <%#= image_tag(hotel.picture.url, width: 100) if hotel.picture.present? %>
+        <%#= hotel.description %>
+<!--      </div>-->
+    <%# end %>
+<!--  </div>-->
+<%# end %>
+
+<div class="container">
+  <% @hotels.in_groups_of(3) do |group| %>
+    <div class="row">
+      <% group.compact.each do |hotel| %>
+        <div class="col-md-3">
+          <div class="card" >
+            <%= image_tag(hotel.picture.url, class: "card-img-top") if hotel.picture.present? %>
+            <div class="card-body">
+              <h5 class="card-title"><%= hotel.name %></h5>
+              <p class="card-text"><%= hotel.description %></p>
+              <div class="card-footer">
+                <%= link_to "詳細を見る", hotel_path(hotel.id), class: "m-2" %>
+                <%= link_to "レビューを見る", hotel_reviews_path(hotel.id), class: "m-2" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

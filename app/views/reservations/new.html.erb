@@ -1,0 +1,9 @@
+<h1><%= @hotel.name %>を予約する</h1>
+
+<%= render "form", reservation: @reservation %>
+
+<br>
+
+<div>
+  <%= link_to "ホテル詳細", hotel_path(@hotel) %>
+</div>

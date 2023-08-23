@@ -1,0 +1,10 @@
+<h1>ご予約ありがとうございます。</h1>
+
+<div>
+  <p><strong>ホテル名</strong><%= @hotel.name %></p>
+  <p><strong>氏名</strong><%= @reservation.name %></p>
+  <p><strong>メールアドレス</strong><%= @reservation.email %></p>
+  <p><strong>チェックイン日</strong><%= @reservation.check_in_date.to_s %></p>
+  <p><strong>チェックアウト日</strong><%= @reservation.check_out_date.to_s %></p>
+  <p><strong>人数</strong><%= @reservation.person_count %></p>
+</div>

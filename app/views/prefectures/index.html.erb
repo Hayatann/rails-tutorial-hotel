@@ -1,0 +1,10 @@
+<h1>都道府県名</h1>
+<% @prefectures.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |prefecture| %>
+      <div class="col-md-4">
+        <h4><%= link_to prefecture.name, prefecture %></h4>
+      </div>
+    <% end %>
+  </div>
+<% end %>

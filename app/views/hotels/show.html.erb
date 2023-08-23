@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="m-3">
+    <h1 class="fw-bold"><%= @hotel.name %></h1>
+    <div class="row">
+      <div class="col">
+        <%= image_tag(@hotel.picture.url, class: "img-fluid", width: "100%" ) if @hotel.picture.present? %> </div>
+
+      <div class="col">
+        <p class="fs-4">所在地: <%= @hotel.prefecture %></p>
+        <br />
+        <p class="fs-5"><%= @hotel.description %></p>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="m-3">
+    最新のレビュー
+  </h4>
+  <div>
+    <% @reviews.each do |review| %>
+      <div class="card m-3">
+        <div class="card-header">
+          rating:  <%= review.evaluation %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title fw-bold">
+            <%= review.title %>
+          </h5>
+          <div class="card-text">
+            <%= review.name %>
+          </div>
+          <div class="card-text">
+            <%= review.description %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+  <div class="container text-center">
+    <div class="row  m-3 justify-content-center">
+      <div class="col">
+        <%= link_to "レビュー一覧", hotel_reviews_path(@hotel) %>
+      </div>
+      <div class="col">
+        <%= link_to "レビューを投稿する", new_hotel_review_path(@hotel) %>
+      </div>
+      <div class="col">
+        <%= link_to "Back", hotels_path %>
+      </div>
+    </div>
+  </div>
+</div>

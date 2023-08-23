@@ -1,0 +1,39 @@
+<div class="container">
+  <%= form_with(model: [@hotel, @review]) do |form| %>
+    <% if @review.errors.any? %>
+      <div>
+        <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+        <ul>
+          <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="m-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
+    </div>
+
+    <div class="m-3">
+      <%= form.label :evaluation, class: "form-label" %>
+      <%= form.number_field :evaluation, class: "form-control", placeholder: "Evaluation", step: 0.1 %>
+    </div>
+
+    <div class="m-3">
+      <%= form.label :title, class: "form-label" %>
+      <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+    </div>
+
+    <div class="m-3">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_area :description, class: "form-control", placeholder: "Description" %>
+    </div>
+    <%= form.hidden_field :hotel_id, value: @hotel.id %>
+
+    <div class="m-3">
+      <%= form.submit class: "btn btn-outline-dark" %>
+    </div>
+  <% end %>
+</div>

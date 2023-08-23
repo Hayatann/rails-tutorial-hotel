@@ -1,0 +1,23 @@
+<h1 class="m-3">お問い合わせ</h1>
+<div class="container">
+  <%= form_with(model: @contact, local: true) do |form| %>
+    <!--name-->
+    <div class="field m-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, id: :contact_name, class: "form-control" %>
+    </div>
+    <!--  email-->
+    <div class="field m-3">
+      <%= form.label :email, class: "form-label" %>
+      <%= form.text_field :email, id: :contact_email, class: "form-control" %>
+    </div>
+    <!--  body-->
+    <div class="field m-3">
+      <%= form.label :body, class: "form-label" %>
+      <%= form.text_area :body, id: :contact_body, class: "form-control" %>
+    </div>
+    <div class="actions m-3">
+      <%= form.submit class: "btn btn-outline-dark"%>
+    </div>
+  <% end %>
+</div>
